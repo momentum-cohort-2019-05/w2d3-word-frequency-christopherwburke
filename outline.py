@@ -3,21 +3,22 @@
 # need to (import?) the EP file and convert it into a string?
 # probably using the "open" command/function
 
-with open("emancipation_proclamation.txt", "r") as f:
-    x.split()
-    x.lowercase()
+eman_proc = open("emancipation_proclamation.txt", "r")
 
-#can i import it as a string or do i import it and then convert it to a string?
+#do i need another variable here? do i need to convert this into a string? i am getting a object no attribute error in line 10
+
+eman_proc.split()
+#split up the file into individual words
+eman_proc.lowercase()
+print(eman_proc)
 
 # now the text file is split into individual words, all lowercase
 
 # need to declare an empty dictionary, this is ultimately where the results will go
 
-ep_dict = {}
 
 # assign keys and values to the dictionary? i.e. words and number of times they appear
 # syntax is mydict[key] = "value"
-?emanproc_dict[] = ?
 
 # need to figure out what "pass a list" means
 
