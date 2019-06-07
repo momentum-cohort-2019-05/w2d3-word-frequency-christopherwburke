@@ -1,25 +1,39 @@
-#put code here and copy it into word_frequency.py
+import re
 
-# need to (import?) the EP file and convert it into a string?
-# probably using the "open" command/function
+f = open("seneca_falls.txt", "r")
+wordlist = f.read()
 
-eman_proc = open("emancipation_proclamation.txt", "r")
+STOP_WORDS = [
+    'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'has', 'he',
+    'i', 'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to', 'were',
+    'will', 'with'
+]
 
-#do i need another variable here? do i need to convert this into a string? i am getting a object no attribute error in line 10
-
-eman_proc.split()
-#split up the file into individual words
-eman_proc.lowercase()
-print(eman_proc)
+wordlist = wordlist.lower()
+wordlist = re.sub(r'[^a-z]', " ", wordlist)
+wordlist = wordlist.split()
+# print(wordlist)
 
 # now the text file is split into individual words, all lowercase
 
-# need to declare an empty dictionary, this is ultimately where the results will go
+di = {}
+clean_wordlist = []
+for w in wordlist:
+    if w not in STOP_WORDS:
+        clean_wordlist.append(w)
+# print(clean_wordlist)
+
+for w in clean_wordlist:
+    di[w] = di.get(w,0) + 1
+# print(di)
+
+sorted(di, key=di.__getitem__)
+
+print(di)
 
 
-# assign keys and values to the dictionary? i.e. words and number of times they appear
-# syntax is mydict[key] = "value"
+# may have to convert to tuple?
 
-# need to figure out what "pass a list" means
+# di[w] declares w as the key. the right of equals is incrementing the value. above is both declaring the key and the method of counting the value in the dictionary
 
 # have to use key to sort by the number of times word appears
